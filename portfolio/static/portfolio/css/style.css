@@ -1,12 +1,15 @@
 head {
-    background-color: black;
+    background-color: #daa3a3;
 }
 body {
-    background-color: black;
+    background-color: #d18181;
 }
 h1 {
     color: antiquewhite;
 }
 h4 {
     color: antiquewhite;
+}
+p {
+    color: beige;
 }

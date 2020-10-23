@@ -1,14 +1,12 @@
 from django.urls import path
 
 from . import views
-from .views import IndexView
 
 app_name = "portfolio"
 urlpatterns = [
-    path("", views.index, name="index"),
-    #path("news/", views.news, name="news"),
-    #path("profile/", views.profile, name="profile"),
-    #path("works", views.works, name="works"),
+    path("", views.IndexView.as_view(), name="index"),
+    path("news/", views.NewsView.as_view(), name="news"),
+    path("profile/", views.ProfileView.as_view(), name="profile"),
+    path("works/", views.WorksView.as_view(), name="works"),
+    path("api/picture", views.PictureListCreate.as_view() ),
 ]
-
-#IndexView.as_view(template_name="portfolio/index.html")

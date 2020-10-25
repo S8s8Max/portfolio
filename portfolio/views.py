@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.views import View
 from django.views.generic import TemplateView
 from config.secret import AccessKey, SecretKey, user_name
+from config.settings import UNSPLASH_API
 from .serializers import PictureSerializer
 from .models import Picture
 from rest_framework import generics
@@ -41,13 +42,16 @@ class WorksView(View):
     def get(self, request, *args, **kwargs):
         # 写真
         pics = Picture.objects.all()
-        # Responses from Unsplash API
-        data = self.get_pic_from_unsplash()
 
         context = {
             "pics": pics,
-            "data": data,
         }
+
+        # Get responses from Unsplash API
+        # if UNSPLASH_API is True.
+        if UNSPLASH_API:
+            data = self.get_pic_from_unsplash()
+            context["data"] = data
 
         return render(request, "portfolio/works.html", context)
 

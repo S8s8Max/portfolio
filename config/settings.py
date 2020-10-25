@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "django_cleanup",
     "rest_framework",
     "portfolio",
-    "frontend",
 ]
 
 MIDDLEWARE = [
@@ -167,4 +166,10 @@ REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     )
+}
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
 }

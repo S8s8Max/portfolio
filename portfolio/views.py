@@ -67,6 +67,10 @@ class WorksView(View):
         response = requests.get(url)
         data = response.json()
 
+        for target in data:
+            download_location = target["links"]["download_location"] + "/?client_id=" + AccessKey
+            target["links"]["download_location"] = ((requests.get(download_location)).json())["url"]
+
         return data
 
 class PictureListCreate(generics.ListCreateAPIView):

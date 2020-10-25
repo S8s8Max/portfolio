@@ -18,9 +18,13 @@
 <br>
 
 {% for info in data %}
-    <img src="{{info.urls.small}}" alt="" width=300>
+    <a href="{{info.links.download_location}}"><img src="{{info.urls.small}}" alt=""
+    width=300 oncontextmenu="return false;" onselectstart="return false;" onmousedown="return false;"></a>
     <p>Photo By <a href="{{info.user.links.html}}">{{info.user.name}}</a>
      on <a href="https://unsplash.com/">Unsplash</a></p>
 {% endfor %}
 
 {% endblock content %}
+<script>
+
+</script>

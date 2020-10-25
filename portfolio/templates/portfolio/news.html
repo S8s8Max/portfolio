@@ -3,10 +3,29 @@
 {% block title %}News{% endblock %}
 
 {% block header %}
-<p>{{greeting}}</p>
 {% endblock %}
 
 
 {% block content %}
+
+{% if news %}
+{% for a in news %}
+
+<img src="{{a.thumb_nail.url}}" alt="" width="100">
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Label</th>
+        <th>Content</th>
+    </tr>
+    <tr>
+        <td>{{a.title}}</td>
+        <td>{{a.label}}</td>
+        <td>{{a.content}}</td>
+    </tr>
+</table>
+
+{% endfor %}
+{% endif %}
 
 {% endblock content %}

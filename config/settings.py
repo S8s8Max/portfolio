@@ -37,9 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd party
     "django_cleanup",
     "rest_framework",
+
+    # Local
     "portfolio",
+    "api",
 ]
 
 MIDDLEWARE = [
@@ -164,15 +169,21 @@ LOGGING = {
         },
     }
 }
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': (
-        'rest_framework.renderers.JSONRenderer',
-    )
-}
+
+BROWSEABLE_REST_FRAMWORK = True
+if BROWSEABLE_REST_FRAMWORK == False:
+    REST_FRAMEWORK = {
+        'DEFAULT_RENDERER_CLASSES': (
+            'rest_framework.renderers.JSONRenderer',
+        )
+    }
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '127.0.0.1:11211',
     }
 }
+
+# When you want to use Unsplash API, set True.
 UNSPLASH_API = False

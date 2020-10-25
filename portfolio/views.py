@@ -2,11 +2,10 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from config.secret import AccessKey, SecretKey, user_name
 from config.settings import UNSPLASH_API
-from .serializers import PictureSerializer
-from .models import Picture
+from .models import Picture, News
 from rest_framework import generics
 import requests
 import json
@@ -29,13 +28,15 @@ class ProfileView(TemplateView):
         context["greeting"] = "Hello!"
         return context
 
-class NewsView(TemplateView):
+class NewsView(ListView):
+    model = News
     template_name = "portfolio/news.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["greeting"] = "Hello!"
-        return context
+    def get(self, request):
+        news = News.objects.all()
+        context = {
+            "news": news,
+        }
+        return render(request, "portfolio/news.html", context)
 
 
 class WorksView(View):
@@ -76,7 +77,3 @@ class WorksView(View):
             target["links"]["download_location"] = ((requests.get(download_location)).json())["url"]
 
         return data
-
-class PictureListCreate(generics.ListCreateAPIView):
-    queryset = Picture.objects.all()
-    serializer_class = PictureSerializer

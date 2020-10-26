@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # 3rd party
     "django_cleanup",
     "rest_framework",
+    "corsheaders",
 
     # Local
     "portfolio",
@@ -55,7 +56,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+# Default Domain of React
+CORS_ORIGIN_WHITELIST = (
+    'localhost:3000/'
+)
 
 ROOT_URLCONF = 'config.urls'
 
@@ -187,3 +195,4 @@ CACHES = {
 
 # When you want to use Unsplash API, set True.
 UNSPLASH_API = False
+

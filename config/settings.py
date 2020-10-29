@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django.http
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -49,23 +49,43 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
-# Default Domain of React
+# CORS settings
 # Must add 'http://' or 'https://'
+
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
+    "http://localhost:8000",
 )
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = (
+           'x-requested-with',
+           'content-type',
+           'accept',
+           'origin',
+           'authorization',
+           'x-csrftoken',
+           'accept-encoding',
+           "access-control-allow-origin"
+       )
+CORS_ALLOW_METHODS = (
+           'GET',
+           'POST',
+           'PUT',
+           'PATCH',
+           'DELETE',
+           'OPTIONS'
+       )
 
 ROOT_URLCONF = 'config.urls'
 

@@ -1,36 +1,20 @@
 import React, { Component } from "react";
+import News from "./components/News";
 import axios from "axios";
 
 class App extends Component {
   state = {
-    news: [],
     picture: []
   };
 
   componentDidMount() {
-    this.getNews();
     this.getPicture();
   }
 
 
-  getNews() {
-    axios
-      .get("http://localhost:8000/api/news", {
-        withCredentials: true
-      })
-      .then(res => {
-          this.setState({ news: res.data});
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-
   getPicture() {
     axios
-      .get("http://localhost:8000/api/picture", {
-        withCredentials: true
-      })
+      .get("http://localhost:8000/api/picture")
       .then(res => {
         this.setState({ picture: res.data});
       })
@@ -41,17 +25,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div id="news">
-        {this.state.news.map(item => (
-          <div key={item.id}>
-            <h2>{item.title}</h2>
-            <p>-{item.label}</p>
-            <br/>
-            <p>{item.content}</p>
-          </div>
-        ))}
-        </div>
+      <div className="main-screen">
+        <News />
         <div id="picture">
         {this.state.picture.map(item => (
           <div>

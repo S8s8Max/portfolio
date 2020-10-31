@@ -28,8 +28,9 @@ class News extends React.Component {
             <div className="news">
                 {this.state.news.map(item => (
                     <div key={item.id}>
+                        <img src={item.thumb_nail} alt="thumb_nail" width="200"/>
                         <h2>{item.title}</h2>
-                        <p>-{item.label}</p>
+                        <p>[{item.label}]</p>
                         <br/>
                         <p>{item.content}</p>
                     </div>

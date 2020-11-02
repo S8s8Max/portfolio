@@ -1,15 +1,18 @@
 import React from "react";
 import axios from "axios";
+import style from "../css/components/Picture.css";
 
 class Picture extends React.Component {
-    state = {
-        picture: []
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            picture: [],
+        };
+    }
 
     componentDidMount() {
         this.getPicture();
     }
-
 
     getPicture() {
         axios
@@ -24,7 +27,7 @@ class Picture extends React.Component {
 
     render () {
         return (
-            <div id="picture">
+            <div className="picture">
                 {this.state.picture.map(item => (
                 <div>
                     <h3>{item.title}</h3>

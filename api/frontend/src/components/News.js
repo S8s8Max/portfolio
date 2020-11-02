@@ -1,9 +1,14 @@
 import React from "react";
 import axios from "axios";
+import Paper from "@material-ui/core/Paper";
+import style from "../css/components/News.css";
 
 class News extends React.Component {
-    state = {
-        news: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            news: [],
+        };
     }
 
     componentDidMount() {
@@ -35,6 +40,7 @@ class News extends React.Component {
                         <p>{item.content}</p>
                     </div>
                 ))}
+                <Paper variant="outlined" elevation={3}/>
             </div>
         );
     };

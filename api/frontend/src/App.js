@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import News from "./components/News";
-import Picture from "./components/Picture";
-import Blog from "./components/Blog";
+import { Route, Router, Switch } from "react-router-dom";
+import Portfolio from "./components/Portfolio";
+
+const NotFound = () => {
+  return (
+    <h2>Requested Page Is Not Found</h2>
+  )
+}
 
 class App extends Component {
-
   render() {
     return (
-      <div className="main-screen">
-        <Blog />
-      </div>
+      <Switch>
+        <Route exact path="/" component={Portfolio}/>
+        <Route component={NotFound}/>
+      </Switch>
     )
   }
 }
-
 export default App;

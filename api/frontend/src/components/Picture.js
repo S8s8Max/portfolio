@@ -1,6 +1,21 @@
 import React from "react";
 import axios from "axios";
-import style from "../css/components/Picture.css";
+import  "../css/components/Picture.css";
+
+import Card from "@material-ui/core/Card";
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+
+import Button from '@material-ui/core/Button';
+import Paper from "@material-ui/core/Paper";
+
+import Typography from '@material-ui/core/Typography';
+import Grid from "@material-ui/core/Grid";
+
+import GetAppIcon from '@material-ui/icons/GetApp';
+import InfoIcon from '@material-ui/icons/Info';
 
 class Picture extends React.Component {
     constructor(props) {
@@ -28,12 +43,40 @@ class Picture extends React.Component {
     render () {
         return (
             <div className="picture">
+                <Typography
+                    variant="h4"
+                    style={{color:"whitesmoke", textAlign:"center", }}
+                >
+                    - Picture
+                </Typography>
+                <Grid container justify="center" spacing={4}>
                 {this.state.picture.map(item => (
-                <div>
-                    <h3>{item.title}</h3>
-                    <img src={item.picture} alt="" width="300"/>
-                </div>
+
+                <Grid item>
+                    <Card className="picture" style={{backgroundImage:item.picture, width:400, height:400}}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="picture"
+                                height="300"
+                                image={item.picture}
+                            />
+                            <Typography variant="h5" style={{color:"black", textAlign:"center"}}>
+                            "{item.title}"
+                            </Typography>
+                        </CardActionArea>
+                        <CardActions style={{alignItems:"center"}}>
+                            <Button size="small" color="primary" variant="text">
+                                <GetAppIcon/>
+                            </Button>
+                            <Button size="small" color="primary" variant="text">
+                                <InfoIcon/>
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
                 ))}
+                </Grid>
             </div>
         );
     }

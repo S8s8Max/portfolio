@@ -1,7 +1,21 @@
 import React from "react";
 import axios from "axios";
-import Paper from "@material-ui/core/Paper";
-import style from "../css/components/News.css";
+import "../css/components/News.css";
+
+import Card from "@material-ui/core/Card";
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+
+import Button from '@material-ui/core/Button';
+
+import Typography from '@material-ui/core/Typography';
+import Grid from "@material-ui/core/Grid";
+
+import ShareIcon from "@material-ui/icons/Share";
+import MoreIcon from "@material-ui/icons/MoreHoriz";
+
 
 class News extends React.Component {
     constructor(props) {
@@ -31,16 +45,49 @@ class News extends React.Component {
     render () {
         return (
             <div className="news">
+                <Typography
+                    variant="h2"
+                    style={{color:"whitesmoke", textAlign:"center", }}
+                >
+                    NEWS
+                </Typography>
+                <Grid container justify="center" spacing={4}>
                 {this.state.news.map(item => (
-                    <div key={item.id}>
-                        <img src={item.thumb_nail} alt="thumb_nail" width="200"/>
-                        <h2>{item.title}</h2>
-                        <p>[{item.label}]</p>
-                        <br/>
-                        <p>{item.content}</p>
-                    </div>
+
+                <Grid item>
+                    <Card elevation={8} style={{ height: 450, width: 300, }}>
+                        <CardActionArea>
+                            <CardMedia
+                                component="img"
+                                alt="thumb_nail"
+                                height="170"
+                                image={item.thumb_nail}
+                                title="thumb_nail"
+                            />
+                            <CardContent className="news_content">
+                                <Typography gutterBottom variant="h5" component="h2">
+                                    {item.title}
+                                </Typography>
+                                <Typography component="h4">
+                                    {item.label}
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    {item.content}
+                                </Typography>
+                            </CardContent>
+                        </CardActionArea>
+                        <CardActions style={{position:"relative"}}>
+                            <Button size="small" color="primary" variant="text">
+                                <ShareIcon/>
+                            </Button>
+                            <Button size="small" color="primary" variant="text">
+                                <MoreIcon/>
+                            </Button>
+                        </CardActions>
+                    </Card>
+                </Grid>
                 ))}
-                <Paper variant="outlined" elevation={3}/>
+                </Grid>
             </div>
         );
     };

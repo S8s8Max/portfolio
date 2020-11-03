@@ -23,7 +23,7 @@ class Header extends React.Component {
             <AppBar position="static">
             <Toolbar>
               <Link to="/">
-                <Button className="titlelogo">
+                <Button className="titlelogo" variant="text">
                     <HomeIcon/>
                 </Button>
               </Link>
@@ -31,7 +31,7 @@ class Header extends React.Component {
               <PopupState variant="popover" popupId="demo-popup-menu">
                 {(popupState) => (
                   <React.Fragment>
-                    <Button className="menulogo" variant="contained" {...bindTrigger(popupState)}>
+                    <Button className="menulogo" variant="text" {...bindTrigger(popupState)}>
                       <MenuIcon/>
                     </Button>
                     <Menu {...bindMenu(popupState)}>

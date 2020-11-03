@@ -4,6 +4,8 @@ import Top from "./Top";
 import Profile from "./Profile";
 import Works from "./Works";
 import Footer from "./Footer";
+import "../css/components/Portfolio.css";
+import News from "./News";
 
 class Portfolio extends React.Component {
     render () {
@@ -12,6 +14,7 @@ class Portfolio extends React.Component {
             <Header/>
             <Top/>
             <Profile/>
+            <News/>
             <Works/>
             <Footer/>
         </div>

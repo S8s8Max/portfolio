@@ -45,49 +45,57 @@ class News extends React.Component {
     render () {
         return (
             <div className="news">
-                <Typography
-                    variant="h2"
-                    style={{color:"whitesmoke", textAlign:"center", }}
-                >
-                    NEWS
-                </Typography>
-                <Grid container justify="center" spacing={4}>
-                {this.state.news.map(item => (
+            <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                 <Grid item>
-                    <Card elevation={8} style={{ height: 450, width: 300, }}>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                alt="thumb_nail"
-                                height="170"
-                                image={item.thumb_nail}
-                                title="thumb_nail"
-                            />
-                            <CardContent className="news_content">
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    {item.title}
-                                </Typography>
-                                <Typography component="h4">
-                                    {item.label}
-                                </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p">
-                                    {item.content}
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        <CardActions style={{position:"relative"}}>
-                            <Button size="small" color="primary" variant="text">
-                                <ShareIcon/>
-                            </Button>
-                            <Button size="small" color="primary" variant="text">
-                                <MoreIcon/>
-                            </Button>
-                        </CardActions>
-                    </Card>
+                    <Typography
+                        variant="h2"
+                        style={{color:"whitesmoke", textAlign:"center", }}
+                    >
+                        NEWS
+                    </Typography>
                 </Grid>
-                ))}
+                <Grid item>
+                    <Grid container justify="center" spacing={4}>
+                    {this.state.news.map(item => (
+
+                    <Grid item>
+                        <Card elevation={8} style={{ height: 450, width: 300, }}>
+                            <CardActionArea>
+                                <CardMedia
+                                    component="img"
+                                    alt="thumb_nail"
+                                    height="170"
+                                    image={item.thumb_nail}
+                                    title="thumbnail"
+                                />
+                                <CardContent className="news_content">
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        {item.title}
+                                    </Typography>
+                                    <Typography component="h4">
+                                        {item.label}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        {item.content}
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            <CardActions style={{position:"relative"}}>
+                                <Button size="small" color="primary" variant="text">
+                                    <ShareIcon/>
+                                </Button>
+                                <Button size="small" color="primary" variant="text">
+                                    <MoreIcon/>
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    </Grid>
+                    ))}
+                    </Grid>
                 </Grid>
+
+            </Grid>
             </div>
         );
     };

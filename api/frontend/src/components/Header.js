@@ -8,7 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import style from "../css/components/Header.css";
+import  "../css/components/Header.css";
 
 class Header extends React.Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class Header extends React.Component {
                 </Button>
               </Link>
 
-              <PopupState variant="popover" popupId="demo-popup-menu">
+              <PopupState variant="popover" popupId="popup-menu">
                 {(popupState) => (
                   <React.Fragment>
                     <Button className="menulogo" variant="text" {...bindTrigger(popupState)}>

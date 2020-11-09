@@ -6,10 +6,6 @@ import Typography from "@material-ui/core/Typography";
 import Paper from '@material-ui/core/Paper';
 
 import Card from "@material-ui/core/Card";
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-
-import ButtonBase from '@material-ui/core/ButtonBase';
 import Button from '@material-ui/core/Button';
 
 import Stepper from '@material-ui/core/Stepper';
@@ -34,7 +30,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '500',
+        width: 500,
         height: "110%",
     },
     profileContent: {
@@ -42,14 +38,13 @@ const useStyles = makeStyles((theme) => ({
     },
     profileAgeTableTitle: {
         backgroundColor: theme.palette.primary.main,
-        paddingTop: 8,
-        paddingBottom: 8,
+        paddingTop: 10,
+        paddingBottom: 10,
         color: "whitesmoke",
     },
     button: {
         marginTop: theme.spacing(1),
         marginRight: theme.spacing(1),
-        position: "relative"
     },
       actionsContainer: {
         marginBottom: theme.spacing(2),
@@ -117,6 +112,7 @@ export default function ProfileContent() {
             <Typography
                 className={classes.profileAgeTableTitle}
                 varient="h6"
+                align="center"
             >
                 Age Table
             </Typography>
@@ -124,7 +120,7 @@ export default function ProfileContent() {
                 activeStep={activeStep}
                 orientation="vertical"
                 elevation={10}
-                style={{width:500, height:"100%"}}
+                style={{width:"500", height:"100%"}}
                 >
                 {steps.map((label, index) => (
                 <Step key={label}>
@@ -141,7 +137,8 @@ export default function ProfileContent() {
                         >
                         <Typography
                             varient="p"
-                            style={{alignItems:"left", paddingLeft:7, paddingRight:7, color:"whitesmoke"}}
+                            style={{paddingLeft:7, paddingRight:7, color:"whitesmoke"}}
+                            align="center"
                         >
                             {getStepContent(index).split("\n").map((t) => {
                                 return <p>{t}</p>
@@ -151,15 +148,17 @@ export default function ProfileContent() {
                     </StepContent>
                 </Step>
                 ))}
+                <Grid container direction="column" alignItems="center" justyfy="center" spacing={6}>
                 {doneLastStep() ? (
-                    <Paper square elevation={0} className={classes.resetContainer}>
-                    <Button onClick={handleReset} className={classes.button}>
-                        Reset
-                    </Button>
-                    </Paper>
+                    <Grid item>
+                        <Paper square elevation={0} className={classes.resetContainer}>
+                        <Button onClick={handleReset} className={classes.button}>
+                            Reset
+                        </Button>
+                        </Paper>
+                    </Grid>
                 ) : (
-                <div className={classes.actionsContainer}>
-                    <div>
+                    <Grid item>
                         <Button
                             disabled={activeStep === 0}
                             onClick={handleBack}
@@ -167,6 +166,7 @@ export default function ProfileContent() {
                         >
                             Back
                         </Button>
+
                         <Button
                             variant="contained"
                             color="primary"
@@ -175,10 +175,9 @@ export default function ProfileContent() {
                         >
                             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                         </Button>
-                    </div>
-
-                </div>
+                        </Grid>
                 )}
+                </Grid>
             </Stepper>
             </Card>
         </div>

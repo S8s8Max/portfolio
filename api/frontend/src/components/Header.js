@@ -8,7 +8,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import MenuIcon from "@material-ui/icons/Menu";
 import HomeIcon from "@material-ui/icons/Home";
 import PopupState, { bindTrigger, bindMenu } from 'material-ui-popup-state';
-import  "../css/components/Header.css";
+import Grid from "@material-ui/core/Grid";
 
 class Header extends React.Component {
     constructor(props) {
@@ -20,7 +20,8 @@ class Header extends React.Component {
 
     render () {
         return (
-            <AppBar position="static">
+          <Grid container>
+            <AppBar position="sticky">
             <Toolbar>
               <Link to="/">
                 <Button className="titlelogo" variant="text">
@@ -43,7 +44,8 @@ class Header extends React.Component {
                 )}
               </PopupState>
             </Toolbar>
-          </AppBar>
+            </AppBar>
+          </Grid>
         );
     }
 }

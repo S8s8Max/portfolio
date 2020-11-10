@@ -19,19 +19,18 @@ class Profile extends React.Component {
                         </Typography>
                     </Grid>
                     <Grid item >
-                        <Grid container direction="row" spacing={10} >
+                        <Grid container direction="column" spacing={5} alignItems="center">
                             <Grid item>
-                                <Card style={{width:300, height:400, marginTop:"45%"}}>
-                                    <Grid container>
+                                <Card elevation={10} style={{width:600, height:300}}>
+                                    <Grid container direction="row" justify="center" spacing={7}>
                                         <Grid item>
                                             <Avatar
                                                 variant="rounded"
-                                                src="../static/image/avatar.png"
-                                                style={{width:180, height:180, marginTop:"15%", marginLeft:"33%", marginRight:"32%"}}
+                                                src="https://source.unsplash.com/random"
+                                                style={{width:180, height:180, marginTop:"15%"}}
                                             />
                                         </Grid>
                                         <Grid item >
-                                            <Typography style={{marginLeft:30, marginTop:20}}>
                                                 <Typography>
                                                     Name : 渡部吉平
                                                 </Typography>
@@ -42,9 +41,8 @@ class Profile extends React.Component {
                                                     School : 大阪市立大学経済学部
                                                 </Typography>
                                                 <Typography>
-                                                    Skill : Python, Django, C/C++, MySQL, PHP, CakePHP, React, Machine Learning,...
+                                                    Skill : Python, Django,
                                                 </Typography>
-                                            </Typography>
                                         </Grid>
                                     </Grid>
                                 </Card>

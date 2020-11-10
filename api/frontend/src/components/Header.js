@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button"
+import IconButton from "@material-ui/core/IconButton";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Menu from "@material-ui/core/Menu";
@@ -20,32 +21,37 @@ class Header extends React.Component {
 
     render () {
         return (
-          <Grid container>
-            <AppBar position="sticky">
+          <AppBar position="sticky" >
             <Toolbar>
-              <Link to="/">
-                <Button className="titlelogo" variant="text">
-                    <HomeIcon/>
-                </Button>
-              </Link>
+                <Link to="/">
+                  <IconButton edge="start" className="titlelogo" variant="text" style={{color:"whitesmoke"}}>
+                      <HomeIcon/>
+                  </IconButton>
+                </Link>
 
-              <PopupState variant="popover" popupId="popup-menu">
-                {(popupState) => (
-                  <React.Fragment>
-                    <Button className="menulogo" variant="text" {...bindTrigger(popupState)}>
-                      <MenuIcon/>
-                    </Button>
-                    <Menu {...bindMenu(popupState)}>
-                      <MenuItem onClick={popupState.close}>Profile</MenuItem>
-                      <MenuItem onClick={popupState.close}>News</MenuItem>
-                      <MenuItem onClick={popupState.close}>Works</MenuItem>
-                    </Menu>
-                  </React.Fragment>
-                )}
-              </PopupState>
+                <div className="adjuster" style={{flexGrow:1}}></div>
+
+                <PopupState variant="popover" popupId="popup-menu">
+                  {(popupState) => (
+                    <React.Fragment>
+                      <IconButton
+                        edge="start"
+                        className="menulogo"
+                        variant="text"
+                        style={{color:"whitesmoke"}}
+                        {...bindTrigger(popupState)}>
+                        <MenuIcon/>
+                      </IconButton>
+                      <Menu {...bindMenu(popupState)} >
+                        <MenuItem onClick={popupState.close}>Profile</MenuItem>
+                        <MenuItem onClick={popupState.close}>News</MenuItem>
+                        <MenuItem onClick={popupState.close}>Works</MenuItem>
+                      </Menu>
+                    </React.Fragment>
+                  )}
+                </PopupState>
             </Toolbar>
-            </AppBar>
-          </Grid>
+          </AppBar>
         );
     }
 }

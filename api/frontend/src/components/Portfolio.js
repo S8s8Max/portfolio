@@ -7,7 +7,6 @@ import News from "./News";
 import Works from "./Works";
 import Footer from "./Footer";
 import "../css/components/Portfolio.css";
-
 import Grid from "@material-ui/core/Grid";
 
 class Portfolio extends React.Component {

@@ -14,24 +14,36 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 
 import { createMuiTheme } from '@material-ui/core/styles';
+import purple from "@material-ui/core/colors/purple";
+import orange from "@material-ui/core/colors/orange";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: "#7c88cc",
-      main: '#5c6bc0',
-      dark: "#404a86",
+      //light: "#8561c5",
+      main: purple[500],
+      //dark: "#482880",
     },
     secondary: {
-      main: '#303f9f',
+      //light: "#ff784e",
+      main: orange[500],
+      //dark: "#b23c17",
     },
   },
+  typography: {
+      button: {
+          textTransform: "none"
+      }
+  }
 });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     root: {
         width: 500,
         height: "110%",
+    },
+    wholeStepper: {
+        backgroundColor: theme.palette.primary.main,
     },
     profileContent: {
         backgroundColor: theme.palette.primary.light,
@@ -106,9 +118,7 @@ export default function ProfileContent() {
 
     return (
         <div className={classes.root}>
-            <Card
-                elevation={8}
-            >
+
             <Typography
                 className={classes.profileAgeTableTitle}
                 varient="h6"
@@ -117,6 +127,7 @@ export default function ProfileContent() {
                 Age Table
             </Typography>
             <Stepper
+                className="wholeStepper"
                 activeStep={activeStep}
                 orientation="vertical"
                 elevation={10}
@@ -169,7 +180,7 @@ export default function ProfileContent() {
 
                         <Button
                             variant="contained"
-                            color="primary"
+                            color={theme.palette.secondary.main}
                             onClick={handleNext}
                             className={classes.button}
                         >
@@ -179,7 +190,6 @@ export default function ProfileContent() {
                 )}
                 </Grid>
             </Stepper>
-            </Card>
         </div>
     );
 

@@ -95,7 +95,7 @@ function getStepContent(step) {
     }
 }
 
-export default function ProfileContent() {
+export default function ProfileAgeTable() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
     const steps = getSteps();

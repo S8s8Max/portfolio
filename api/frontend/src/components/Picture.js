@@ -60,7 +60,7 @@ class Picture extends React.Component {
                         <Grid item>
                             <Card
                                 className="picture"
-                                style={{backgroundImage:item.picture, width:400, height:400}}
+                                style={{width:400, height:400}}
                                 elevation={8}
                             >
                                 <CardActionArea>

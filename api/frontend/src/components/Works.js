@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 class Works extends React.Component {
     render () {
         return (
-            <div className="works" >
+            <React.Fragment>
                 <Typography variant="h2" style={{color:"whitesmoke", alignContent:"center"}}>
                         WORKS
                 </Typography>
@@ -25,7 +25,7 @@ class Works extends React.Component {
                 </Grid>
 
                 </Grid>
-            </div>
+            </React.Fragment>
         )
     }
 }

@@ -7,12 +7,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
-import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
-
 import Typography from '@material-ui/core/Typography';
+
 import Grid from "@material-ui/core/Grid";
-import Box from '@material-ui/core/Box';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
 
 import ShareIcon from "@material-ui/icons/Share";
 import MoreIcon from "@material-ui/icons/MoreHoriz";
@@ -58,14 +59,27 @@ class News extends React.Component {
                     </Typography>
                 </Grid>
                 <Grid item>
-                    <Container maxWidth="md" style={{paddingTop:20, paddingBottom:20}}>
-                    <div className="newsContent" >
-                    <Grid container justify="center" spacing={4}>
+                    <div
+                        className="newsContent"
+                        style={{
+                            display:"flex",
+                            flexWrap:"wrap",
+                            justifyContent:"space-around",
+                            overflow:"hidden",
+                            background:"none"}}>
+                    <GridList
+                        style={{
+                            flexWrap:"nowrap",
+                            transform:"translateZ(0)",
+                        }}
+                        cols={4.5}
+                        spacing={10}>
+
                     {this.state.news.map(item => (
 
-                    <Grid item xs={12} sm={6} md={4}>
-                        <Card className="hs" elevation={8} style={{ height: "100%", display: 'flex', flexDirection: 'column',}}>
-                                <CardActionArea>
+                    <GridListTile style={{height: "auto"}}>
+                        <Card elevation={8} >
+                            <CardActionArea>
                                 <CardMedia
                                     component="img"
                                     alt="thumb_nail"
@@ -73,9 +87,8 @@ class News extends React.Component {
                                     image={item.thumb_nail}
                                     title="thumbnail"
                                 />
-                                </CardActionArea>
-
-                                <CardContent style={{flexGrow:1,}}>
+                            </CardActionArea>
+                                <CardContent >
                                     <Typography gutterBottom variant="h5" component="h2">
                                         {item.title}
                                     </Typography>
@@ -86,21 +99,19 @@ class News extends React.Component {
                                         {item.content}
                                     </Typography>
                                 </CardContent>
-
-                                <CardActions style={{position:"relative"}}>
-                                    <Button size="small" color="primary" variant="text">
-                                        <ShareIcon/>
-                                    </Button>
-                                    <Button size="small" color="primary" variant="text">
-                                        <MoreIcon/>
-                                    </Button>
-                                </CardActions>
+                            <CardActions style={{position:"relative"}}>
+                                <Button size="small" color="primary" variant="text">
+                                    <ShareIcon/>
+                                </Button>
+                                <Button size="small" color="primary" variant="text">
+                                    <MoreIcon/>
+                                </Button>
+                            </CardActions>
                         </Card>
-                    </Grid>
+                    </GridListTile>
                     ))}
-                    </Grid>
+                    </GridList>
                     </div>
-                    </Container>
                 </Grid>
 
             </Grid>

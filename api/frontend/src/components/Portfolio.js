@@ -4,7 +4,9 @@ import Header from "./Header";
 import Top from "./Top";
 import Profile from "./Profile";
 import News from "./News";
-import Works from "./Works";
+import News2 from "./News2";
+import Picture from "./Picture";
+import Product from "./Product";
 import Footer from "./Footer";
 import Grid from "@material-ui/core/Grid";
 
@@ -29,10 +31,10 @@ class Portfolio extends React.Component {
                     <News/>
                 </Grid>
                 <Grid item>
-                    <Works/>
+                    <Picture/>
                 </Grid>
                 <Grid item>
-
+                    <Product/>
                 </Grid>
 
             </Grid>

@@ -4,15 +4,16 @@ import ProfileIntro from "./ProfileIntro";
 
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import PersonIcon from '@material-ui/icons/Person';
 
 class Profile extends React.Component {
     render () {
         return (
-            <div className="profile">
+            <React.Fragment>
                 <Grid container direction="column" spacing={3} justify="center" alignItems="center">
                     <Grid item>
                         <Typography variant="h2" style={{color:"whitesmoke"}}>
-                            PROFILE
+                            <PersonIcon fontSize="large"/>
                         </Typography>
                     </Grid>
                     <Grid item >
@@ -26,7 +27,7 @@ class Profile extends React.Component {
                         </Grid>
                     </Grid>
                 </Grid>
-            </div>
+            </React.Fragment>
         );
     }
 }

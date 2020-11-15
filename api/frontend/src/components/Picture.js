@@ -4,16 +4,21 @@ import axios from "axios";
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import Button from '@material-ui/core/Button';
+import IconButton from "@material-ui/core/IconButton";
 
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
 
-import GetAppIcon from '@material-ui/icons/GetApp';
 import InfoIcon from '@material-ui/icons/Info';
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
+
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 class Picture extends React.Component {
     constructor(props) {
@@ -40,7 +45,7 @@ class Picture extends React.Component {
 
     render () {
         return (
-            <div className="picture">
+            <React.Fragment>
                 <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                     <Grid item>
@@ -48,48 +53,59 @@ class Picture extends React.Component {
                             variant="h4"
                             style={{color:"whitesmoke", textAlign:"center", }}
                         >
-                            - Picture
+                            <CameraAltIcon fontSize="large"/>
                         </Typography>
                     </Grid>
 
                     <Grid item>
-                        <Grid container justify="center" spacing={4}>
-                        {this.state.picture.map(item => (
-
-                        <Grid item>
-                            <Card
-                                className="picture"
-                                style={{width:400, height:400}}
-                                elevation={8}
-                            >
-                                <CardActionArea>
+                        <div
+                            style={{
+                                display:"flex",
+                                flexWrap:"wrap",
+                                justifyContent:"space-around",
+                                overflow:"hidden",
+                                background:"none"}}>
+                            <GridList
+                                cols={2.8}
+                                spacing={15}
+                                style={{
+                                    flexWrap:"nowrap",
+                                    transform:"translateZ(0)"
+                                }}>
+                                <CssBaseline/>
+                            {this.state.picture.map(item => (
+                              <GridListTile style={{height:"auto"}}>
+                                <Card>
+                                    <CardActionArea>
                                     <CardMedia
                                         component="img"
-                                        alt="picture"
-                                        height="300"
+                                        height=""
                                         image={item.picture}
-                                        title="picture"
+                                        backgroundRepeat="no-repeat"
+                                        backgroundSize="cover"
+                                        style={{
+                                            height:300
+                                        }}
                                     />
-                                    <Typography variant="h5" style={{color:"black", textAlign:"center"}}>
-                                    "{item.title}"
-                                    </Typography>
-                                </CardActionArea>
-                                <CardActions style={{alignItems:"center"}}>
-                                    <Button size="small" color="primary" variant="text">
-                                        <GetAppIcon/>
-                                    </Button>
-                                    <Button size="small" color="primary" variant="text">
-                                        <InfoIcon/>
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-                        ))}
-                        </Grid>
-                    </Grid>
+                                    </CardActionArea>
 
+                                    <GridListTileBar
+                                    title={item.title}
+                                    actionIcon={
+                                        <IconButton aria-label={`star ${item.title}`} style={{color:"whitesmoke"}}>
+                                        <InfoIcon/>
+                                        </IconButton>
+                                    }
+                                    style={{background:"linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)"}}
+                                    />
+                                </Card>
+                              </GridListTile>
+                            ))}
+                            </GridList>
+                        </div>
+                    </Grid>
                 </Grid>
-            </div>
+            </React.Fragment>
         );
     }
 }

@@ -12,12 +12,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from "@material-ui/core/Button";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import InfoIcon from "@material-ui/icons/Info";
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 
 class Product extends React.Component {
     render () {
         return (
-            <div className="product">
+            <React.Fragment>
                 <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                     <Grid item>
@@ -25,7 +26,7 @@ class Product extends React.Component {
                             variant="h4"
                             style={{color:"whitesmoke", textAlign:"center", }}
                         >
-                            - Product
+                            <FitnessCenterIcon fontSize="large"/>
                         </Typography>
                     </Grid>
 
@@ -59,7 +60,7 @@ class Product extends React.Component {
                     </Grid>
 
                 </Grid>
-            </div>
+            </React.Fragment>
         );
     }
 }

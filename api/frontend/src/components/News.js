@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import "../css/components/News.css";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -45,7 +44,7 @@ class News extends React.Component {
     render () {
         return (
             <div className="news">
-            <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
+            <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
 
                 <Grid item>
                     <Typography
@@ -56,11 +55,12 @@ class News extends React.Component {
                     </Typography>
                 </Grid>
                 <Grid item>
+                    <div className="newsContent" >
                     <Grid container justify="center" spacing={4}>
                     {this.state.news.map(item => (
 
                     <Grid item>
-                        <Card elevation={8} style={{ height: 450, width: 300, }}>
+                        <Card elevation={8} style={{ height: 450, maxWidth: 300, }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -69,7 +69,7 @@ class News extends React.Component {
                                     image={item.thumb_nail}
                                     title="thumbnail"
                                 />
-                                <CardContent className="news_content">
+                                <CardContent >
                                     <Typography gutterBottom variant="h5" component="h2">
                                         {item.title}
                                     </Typography>
@@ -93,6 +93,7 @@ class News extends React.Component {
                     </Grid>
                     ))}
                     </Grid>
+                    </div>
                 </Grid>
 
             </Grid>

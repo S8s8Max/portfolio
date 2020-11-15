@@ -85,7 +85,7 @@ export default function ProfileAgeTable() {
           </TimelineSeparator>
           <TimelineContent className={classes.ageTableContents}>
             <Typography>
-                Graduate Matsue South H.S.
+                Graduated Matsue South H.S.
             </Typography>
           </TimelineContent>
         </TimelineItem>
@@ -102,7 +102,7 @@ export default function ProfileAgeTable() {
           </TimelineSeparator>
           <TimelineContent className={classes.ageTableContents}>
             <Typography>
-                Enterd the Faculty of Economics, Osaka City University
+                Entered the Faculty of Economics, Osaka City University
             </Typography>
           </TimelineContent>
         </TimelineItem>

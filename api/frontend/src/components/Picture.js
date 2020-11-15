@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import  "../css/components/Picture.css";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';

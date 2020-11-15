@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 class Top extends React.Component {
     render () {
         return (
-            <div className="top">
+            <div className="top" style={{width:"100%"}}>
                 <Typography variant="h1" style={{color:"whitesmoke", textAlign:"center"}}>
                     Sober Wizard's Lab
                 </Typography>

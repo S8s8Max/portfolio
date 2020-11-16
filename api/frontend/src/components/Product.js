@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -10,12 +11,32 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import Button from "@material-ui/core/Button";
-import GetAppIcon from "@material-ui/icons/GetApp";
-import InfoIcon from "@material-ui/icons/Info";
+import TextsmsOutlinedIcon from '@material-ui/icons/TextsmsOutlined';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 
 class Product extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            product: [],
+        };
+    }
+
+    componentDidMount() {
+        this.getProduct();
+    }
+
+    getProduct() {
+        axios
+          .get("http://localhost:8000/api/product")
+          .then(res => {
+            this.setState({ product: res.data});
+          })
+          .catch(err => {
+            console.log(err);
+          });
+    }
     render () {
         return (
             <React.Fragment>
@@ -31,32 +52,33 @@ class Product extends React.Component {
                     </Grid>
 
                     <Grid item>
-                        <Card
-                            className="product"
-                            style={{width:400, height:400}}
-                            elevation={8}
-                        >
+                        {this.state.product.map(item => (
+                            <Card
+                                className="product"
+                                style={{width:400, minHeight:"50vh", background:"rgba(0,0,0,0.5)",}}
+                                elevation={8}
+                            >
                                 <CardActionArea>
                                     <CardMedia
                                         component="img"
                                         alt="thumb_nail"
-                                        height="300"
-                                        image="https://source.unsplash.com/random"
+                                        minHeight="30%"
+                                        image={item.thumb_nail}
                                         title="thumbnail"
                                     />
-                                    <Typography variant="h5" style={{color:"black", textAlign:"center"}}>
-                                        "Product Here."
-                                    </Typography>
+
+
+                                <Typography variant="h5" style={{color:"whitesmoke", textAlign:"center", paddingTop:20}}>
+                                    {item.title}
+                                </Typography>
+                                <Typography variant="dody2" style={{color:"whitesmoke", textAlign:"center",}}>
+                                    <TextsmsOutlinedIcon/>
+                                    {item.sub_title}
+                                </Typography>
+
                                 </CardActionArea>
-                                <CardActions style={{alignItems:"center"}}>
-                                    <Button size="small" color="primary" variant="text">
-                                        <GetAppIcon/>
-                                    </Button>
-                                    <Button size="small" color="primary" variant="text">
-                                        <InfoIcon/>
-                                    </Button>
-                                </CardActions>
                             </Card>
+                        ))}
                     </Grid>
 
                 </Grid>

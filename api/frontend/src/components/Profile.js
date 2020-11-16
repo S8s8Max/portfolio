@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import ProfileAgeTable2 from "./ProfileAgeTable2";
 import ProfileIntro from "./ProfileIntro";
 
@@ -19,7 +20,7 @@ class Profile extends React.Component {
                     <Grid item >
                         <Grid container direction="column" spacing={5} alignItems="center">
                             <Grid item>
-                                <ProfileIntro/>
+                                <ProfileIntro />
                             </Grid>
                             <Grid item>
                                 <ProfileAgeTable2/>

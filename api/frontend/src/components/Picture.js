@@ -51,7 +51,7 @@ class Picture extends React.Component {
                     <Grid item>
                         <Typography
                             variant="h4"
-                            style={{color:"whitesmoke", textAlign:"center", }}
+                            style={{color:"whitesmoke"}}
                         >
                             <CameraAltIcon fontSize="large"/>
                         </Typography>

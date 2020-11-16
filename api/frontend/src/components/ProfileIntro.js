@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
+import avatar from "../static/image/avatar.png";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -60,7 +61,7 @@ export default function ProfileIntro() {
   return (
         <Card className={classes.card}>
           <Hidden xsDown>
-            <CardMedia className={classes.cardMedia} image="https://source.unsplash.com/random" title="imageTitle" />
+            <CardMedia className={classes.cardMedia} image={avatar} title="imageTitle" />
           </Hidden>
           <div className={classes.cardDetails}>
             <CardContent>

@@ -21,7 +21,10 @@ class Header extends React.Component {
 
     render () {
         return (
-          <AppBar position="sticky" >
+          <AppBar
+            position="relative"
+            style={{background:"linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%)",}}
+            elevation={0}>
             <Toolbar>
                 <Link to="/">
                   <IconButton edge="start" className="titlelogo" variant="text" style={{color:"whitesmoke"}}>

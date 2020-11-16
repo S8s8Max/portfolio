@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from portfolio.models import News, Picture
+from portfolio.models import News, Picture, Product, ProfileImage
 
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +10,13 @@ class PictureSerializer(serializers.ModelSerializer):
     class Meta:
         model = Picture
         fields = ("title", "picture")
+
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ("title", "sub_title", "description", "date", "thumb_nail")
+
+class ProfileImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ProfileImage
+        fields = ("title", "image")

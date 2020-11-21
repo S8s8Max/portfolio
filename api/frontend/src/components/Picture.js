@@ -79,12 +79,11 @@ class Picture extends React.Component {
                                     <CardActionArea>
                                     <CardMedia
                                         component="img"
-                                        height=""
                                         image={item.picture}
                                         backgroundRepeat="no-repeat"
                                         backgroundSize="cover"
                                         style={{
-                                            height:300
+                                            height:400
                                         }}
                                     />
                                     </CardActionArea>

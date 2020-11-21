@@ -95,9 +95,7 @@ class News extends React.Component {
                                     <Typography component="h4">
                                         {item.label}
                                     </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {item.content}
-                                    </Typography>
+                                    
                                 </CardContent>
                             <CardActions style={{position:"relative"}}>
                                 <Button size="small" color="primary" variant="text">

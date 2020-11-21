@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import {HashLink} from "react-router-hash-link";
 import Typography from "@material-ui/core/Typography";
 import Grow from "@material-ui/core/Grow";
 
@@ -20,12 +21,15 @@ class Top extends React.Component {
                             }}>
                         Welcome To <br/> Sober Wizard's Lab
                     </Typography>
+
+                    <HashLink smooth to="#contentStart">
                     <IconButton
                     style={{
                         color:"whitesmoke",
                     }}>
                         <ExpandMoreIcon fontSize="large"/>
                     </IconButton>
+                    </HashLink>
                 </div>
         );
     }

@@ -2,12 +2,13 @@ import React from "react";
 import axios from "axios";
 
 import Grid from "@material-ui/core/Grid";
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Typography from "@material-ui/core/Typography";
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import Button from "@material-ui/core/Button";
@@ -52,33 +53,47 @@ class Product extends React.Component {
                     </Grid>
 
                     <Grid item>
-                        {this.state.product.map(item => (
-                            <Card
-                                className="product"
-                                style={{width:400, minHeight:"50vh", background:"rgba(0,0,0,0.5)",}}
-                                elevation={8}
-                            >
-                                <CardActionArea>
-                                    <CardMedia
-                                        component="img"
-                                        alt="thumb_nail"
-                                        minHeight="30%"
-                                        image={item.thumb_nail}
-                                        title="thumbnail"
-                                    />
-
-
-                                <Typography variant="h5" style={{color:"whitesmoke", textAlign:"center", paddingTop:20}}>
-                                    {item.title}
-                                </Typography>
-                                <Typography variant="dody2" style={{color:"whitesmoke", textAlign:"center",}}>
-                                    <TextsmsOutlinedIcon/>
-                                    {item.sub_title}
-                                </Typography>
-
-                                </CardActionArea>
-                            </Card>
-                        ))}
+                        <div style={{
+                            display:"flex",
+                            flexWrap:"wrap",
+                            justifyContent:"space-around",
+                            overflow:"hidden",
+                            background:"none"
+                        }}>
+                        <GridList
+                            cols={2.8}
+                            spacing={15}
+                            style={{
+                                flexWrap:"nowrap",
+                                transform:"translateZ(0)"
+                            }}>
+                            {this.state.product.map(item => (
+                                <GridListTile style={{height:"auto"}}>
+                                    <Card>
+                                        <CardActionArea>
+                                            <GridListTileBar
+                                                title={item.title}
+                                                subtitle={item.sub_title}
+                                                style={{
+                                                    height:100,
+                                                    background:"linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)"
+                                                }}
+                                            />
+                                            <CardMedia
+                                                component="img"
+                                                alt="thumb_nail"
+                                                image={item.thumb_nail}
+                                                title="thumbnail"
+                                                style={{
+                                                    height:400
+                                                }}
+                                            />
+                                        </CardActionArea>
+                                    </Card>
+                                </GridListTile>
+                            ))}
+                        </GridList>
+                        </div>
                     </Grid>
 
                 </Grid>

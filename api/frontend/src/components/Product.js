@@ -85,7 +85,7 @@ class Product extends React.Component {
                                                 image={item.thumb_nail}
                                                 title="thumbnail"
                                                 style={{
-                                                    height:400
+                                                    height:300
                                                 }}
                                             />
                                         </CardActionArea>

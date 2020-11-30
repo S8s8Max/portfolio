@@ -9,7 +9,7 @@ function Copyright() {
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
         <Link color="inherit" href="https://material-ui.com/">
-          Your Website
+          Kippei Watnabe
         </Link>{' '}
         {new Date().getFullYear()}
         {'.'}
@@ -32,10 +32,10 @@ export default function Album() {
             <footer className={classes.footer}>
             <CssBaseline/>
                 <Typography variant="h6" align="center" gutterBottom>
-                    Footer
+                    Sober Wizard's Lab
                 </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                    Thank you for your checking!
                 </Typography>
                 <Copyright />
             </footer>

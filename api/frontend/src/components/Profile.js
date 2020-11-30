@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import ProfileAgeTable2 from "./ProfileAgeTable2";
 import ProfileIntro from "./ProfileIntro";
 

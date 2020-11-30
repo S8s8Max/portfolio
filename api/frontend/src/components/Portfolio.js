@@ -11,6 +11,7 @@ import Footer from "./Footer";
 
 import Divider from '@material-ui/core/Divider';
 import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
 
 class Portfolio extends React.Component {
     render () {
@@ -19,14 +20,17 @@ class Portfolio extends React.Component {
             <div
                 style={{
                     background:"linear-gradient(to bottom, rgba(20,20,40,1), rgba(20,20,40,0)), url(https://source.unsplash.com/user/S8s8Max/likes/1600x900)",
-                    minHeight:"100vh",
+                    minHeight:"120vh",
                     backgroundRepeat:"no-repeat",
                     backgroundSize:"cover",}}>
                 <Header />
                 <Top/>
             </div>
             <div id="contentStart" style={{padding:40}}>
-                <Grid container direction="column" spacing={10} justify="center">
+
+                    <Container maxWidth="md">
+                    <Grid container direction="column" spacing={10} justify="center">
+                        
                     <Grid item>
                         <Profile/>
                     </Grid>
@@ -41,7 +45,10 @@ class Portfolio extends React.Component {
                         <Product/>
                     </Grid>
 
-                </Grid>
+                    </Grid>
+                    </Container>
+
+
             </div>
             <Footer/>
         </div>

@@ -16,19 +16,19 @@ class Top extends React.Component {
                         style={{
                             color:"whitesmoke",
                             fontFamily:"Nova Mono",
-                            fontSize:"3rem",
-                            paddingTop:"40vh"
+                            fontSize:"4rem",
+                            paddingTop:"30vh"
                             }}>
                         Welcome To <br/> Sober Wizard's Lab
                     </Typography>
 
                     <HashLink smooth to="#contentStart">
-                    <IconButton
-                    style={{
-                        color:"whitesmoke",
-                    }}>
-                        <ExpandMoreIcon fontSize="large"/>
-                    </IconButton>
+                        <IconButton
+                        style={{
+                            color:"whitesmoke",
+                        }}>
+                            <ExpandMoreIcon fontSize="large"/>
+                        </IconButton>
                     </HashLink>
                 </div>
         );

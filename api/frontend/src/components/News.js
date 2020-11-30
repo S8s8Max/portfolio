@@ -1,6 +1,11 @@
 import React from "react";
 import axios from "axios";
-import NewsDetailModal from "./NewsDetailModal";
+
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 import Card from "@material-ui/core/Card";
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -10,12 +15,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
-
+import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Grid from "@material-ui/core/Grid";
 
-import ShareIcon from "@material-ui/icons/Share";
-
+import CloseIcon from "@material-ui/icons/Close";
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 
 
@@ -24,7 +28,16 @@ class News extends React.Component {
         super(props);
         this.state = {
             news: [],
+            open: false,
+            scroll: "paper",
         };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {
+        this.setState({
+            open: !this.state.open,
+        });
     }
 
     componentDidMount() {
@@ -44,10 +57,12 @@ class News extends React.Component {
           });
     }
 
+
+
     render () {
         return (
             <React.Fragment>
-            <Grid container direction="column" justify="center" alignItems="center" spacing={2}>
+            <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                 <Grid item>
                     <Typography
@@ -65,15 +80,16 @@ class News extends React.Component {
 
                     <Grid item xs={12} sm={6} md={4}>
                         <Card className="hs" elevation={8} style={{ height: "100%", display: 'flex', flexDirection: 'column',}}>
-                                <CardActionArea>
+                            <CardActionArea>
                                 <CardMedia
                                     component="img"
                                     alt="thumb_nail"
                                     height="170"
                                     image={item.thumb_nail}
                                     title="thumbnail"
+                                    onClick={this.handleClick}
                                 />
-                                </CardActionArea>
+                            </CardActionArea>
 
                                 <CardContent style={{flexGrow:1,}}>
                                     <Typography gutterBottom variant="h5" component="h2">
@@ -86,16 +102,36 @@ class News extends React.Component {
                                         {item.content}
                                     </Typography>
                                 </CardContent>
-
-                                <CardActions style={{position:"relative"}}>
-                                    <Button size="small" color="primary" variant="text">
-                                        <ShareIcon/>
-                                    </Button>
-                                    <Button size="small" color="primary" variant="text" >
-                                        <NewsDetailModal />
-                                    </Button>
-                                </CardActions>
                         </Card>
+                            <Dialog
+                                open={this.state.open}
+                                onClose={this.handleClick}
+                                scroll={this.state.scroll}
+                                aria-labelledby="scroll-dialog-title"
+                                aria-describedby="scroll-dialog-description"
+                            >
+                                <DialogTitle id="scroll-dialog-title">{item.title}</DialogTitle>
+                                    <DialogContent dividers={this.scroll === 'paper'}>
+                                    <Card>
+                                        <CardMedia
+                                        component="img"
+                                        alt="thumb_nail"
+                                        image={item.thumb_nail}
+                                        />
+                                    </Card>
+                                    <DialogContentText
+                                        id="scroll-dialog-description"
+                                        tabIndex={-1}
+                                    >
+                                    {item.content}
+                                    </DialogContentText>
+                                    </DialogContent>
+                                <DialogActions>
+                                <Button onClick={this.handleClick} color="primary">
+                                    <CloseIcon/>
+                                </Button>
+                                </DialogActions>
+                            </Dialog>
                     </Grid>
                     ))}
                     </Grid>
@@ -104,6 +140,7 @@ class News extends React.Component {
                 </Grid>
 
             </Grid>
+
             </React.Fragment>
         );
     };

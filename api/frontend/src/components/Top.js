@@ -1,8 +1,6 @@
 import React from "react";
-import axios from "axios";
 import {HashLink} from "react-router-hash-link";
 import Typography from "@material-ui/core/Typography";
-import Grow from "@material-ui/core/Grow";
 
 import IconButton from "@material-ui/core/IconButton";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';

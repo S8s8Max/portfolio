@@ -15,7 +15,6 @@ class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-
         };
     }
 
@@ -35,43 +34,36 @@ class Header extends React.Component {
               */}
 
                 <div className="adjuster" style={{flexGrow:1}}></div>
-
-                <PopupState variant="popover" popupId="popup-menu">
-                  {(popupState) => (
                     <React.Fragment>
                       <IconButton
                         edge="start"
                         className="menulogo"
                         variant="text"
-                        style={{color:"whitesmoke"}}
-                        {...bindTrigger(popupState)}>
+                        style={{color:"whitesmoke"}}>
                         <DirectionsRunIcon/>
                       </IconButton>
-                      <Menu {...bindMenu(popupState)} >
+
                         <HashLink smooth to="#contentStart">
-                          <IconButton>
+                          <IconButton style={{color:"whitesmoke"}}>
                             <PersonIcon/>
                           </IconButton>
                         </HashLink>
                         <HashLink smooth to="#News">
-                          <IconButton>
+                          <IconButton style={{color:"whitesmoke"}}>
                             <MenuBookIcon/>
                           </IconButton>
                         </HashLink>
                         <HashLink smooth to="#Picture">
-                          <IconButton>
+                          <IconButton style={{color:"whitesmoke"}}>
                             <CameraAltIcon/>
                           </IconButton>
                         </HashLink>
                         <HashLink smooth to="#Product">
-                          <IconButton>
+                          <IconButton style={{color:"whitesmoke"}}>
                             <FitnessCenterIcon/>
                           </IconButton>
                         </HashLink>
-                      </Menu>
                     </React.Fragment>
-                  )}
-                </PopupState>
             </Toolbar>
           </AppBar>
         );

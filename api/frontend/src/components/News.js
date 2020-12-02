@@ -73,7 +73,7 @@ class News extends React.Component {
 
     render () {
         return (
-            <React.Fragment>
+            <div id="News">
             <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                 <Grid item>
@@ -183,7 +183,7 @@ class News extends React.Component {
 
             </Grid>
 
-            </React.Fragment>
+            </div>
         );
     };
 }

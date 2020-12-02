@@ -56,6 +56,8 @@ export default function ProfileIntro() {
     { key: 2, label: 'Django' },
     { key: 3, label: 'React' },
     { key: 4, label: 'Machine Learning' },
+    { key: 5, label: "PHP" },
+    { key: 6, label: "MySQL" },
   ]);
 
   return (
@@ -121,9 +123,11 @@ export default function ProfileIntro() {
                     <IconButton className={classes.social} href="https://instagram.com/s8s8max">
                         <InstagramIcon/>
                     </IconButton>
+                    {/**
                     <IconButton className={classes.social} href="https://twitter.com/S8s8Max">
                         <TwitterIcon/>
                     </IconButton>
+                    */}
                 </Grid>
             </Grid>
 

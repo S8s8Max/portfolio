@@ -38,7 +38,7 @@ class Product extends React.Component {
     }
     render () {
         return (
-            <React.Fragment>
+            <div id="Product">
                 <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                     <Grid item>
@@ -95,7 +95,7 @@ class Product extends React.Component {
                     </Grid>
 
                 </Grid>
-            </React.Fragment>
+            </div>
         );
     }
 }

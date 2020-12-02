@@ -9,7 +9,7 @@ import PersonIcon from '@material-ui/icons/Person';
 class Profile extends React.Component {
     render () {
         return (
-            <React.Fragment>
+            <div id="contentStart">
                 <Grid container direction="column" spacing={3} justify="center" alignItems="center">
                     <Grid item>
                         <Typography variant="h2" style={{color:"whitesmoke"}}>
@@ -27,7 +27,7 @@ class Profile extends React.Component {
                         </Grid>
                     </Grid>
                 </Grid>
-            </React.Fragment>
+            </div>
         );
     }
 }

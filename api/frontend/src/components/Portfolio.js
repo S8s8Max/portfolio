@@ -25,34 +25,23 @@ class Portfolio extends React.Component {
                 <Top/>
             </div>
             <div style={{padding:40}}>
-
-                    <Container maxWidth="md">
+                <Container maxWidth="md">
                     <Grid container direction="column" spacing={10} justify="center">
-                    <div id="contentStart">
                     <Grid item>
                         <Profile/>
                     </Grid>
-                    </div>
-                    <div id="News">
                     <Grid item>
                         <News/>
                     </Grid>
-                    </div>
-                    <div id="Picture">
                     <Grid item>
                         <Picture/>
                     </Grid>
-                    </div>
-                    <div id="Product">
                     <Grid item>
                         <Product/>
                     </Grid>
-                    </div>
 
                     </Grid>
-                    </Container>
-
-
+                </Container>
             </div>
             <Footer/>
         </div>

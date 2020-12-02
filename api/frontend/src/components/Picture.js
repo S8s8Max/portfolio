@@ -45,7 +45,7 @@ class Picture extends React.Component {
 
     render () {
         return (
-            <React.Fragment>
+            <div id="Picture">
                 <Grid container direction="column" justify="center" alignItems="center" spacing={3}>
 
                     <Grid item>
@@ -104,7 +104,7 @@ class Picture extends React.Component {
                         </div>
                     </Grid>
                 </Grid>
-            </React.Fragment>
+            </div>
         );
     }
 }

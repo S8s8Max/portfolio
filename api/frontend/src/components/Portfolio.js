@@ -15,13 +15,13 @@ class Portfolio extends React.Component {
     render () {
         return (
         <div className="portfolio" style={{backgroundColor:"rgb(20, 20, 40)"}}>
+            <Header />
             <div
                 style={{
                     background:"linear-gradient(to bottom, rgba(20,20,40,1), rgba(20,20,40,0)), url(https://source.unsplash.com/user/S8s8Max/likes/1600x900)",
                     minHeight:"120vh",
                     backgroundRepeat:"no-repeat",
                     backgroundSize:"cover",}}>
-                <Header />
                 <Top/>
             </div>
             <div style={{padding:40}}>
@@ -38,6 +38,9 @@ class Portfolio extends React.Component {
                     </Grid>
                     <Grid item>
                         <Product/>
+                    </Grid>
+                    <Grid item>
+                        
                     </Grid>
 
                     </Grid>

@@ -7,7 +7,6 @@ import TimelineConnector from '@material-ui/lab/TimelineConnector';
 import TimelineContent from '@material-ui/lab/TimelineContent';
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import TimelineDot from '@material-ui/lab/TimelineDot';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { createMuiTheme } from '@material-ui/core/styles';
 import purple from "@material-ui/core/colors/purple";
@@ -25,6 +24,7 @@ const theme = createMuiTheme({
       main: orange[500],
       //dark: "#b23c17",
     },
+    type:"dark"
   },
   typography: {
       button: {
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
     color: "whitesmoke",
   },
   ageTableTitle: {
-      color: "secondary",
+      color: theme.palette.secondary.main,
   }
 
 });
@@ -57,8 +57,8 @@ export default function ProfileAgeTable() {
       <Timeline align="alternate">
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography>
                 1998 June 16
             </Typography>
           </TimelineOppositeContent>
@@ -74,8 +74,8 @@ export default function ProfileAgeTable() {
         </TimelineItem>
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography>
                 2017 Mar.
             </Typography>
           </TimelineOppositeContent>
@@ -91,8 +91,8 @@ export default function ProfileAgeTable() {
         </TimelineItem>
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography>
                 2017 Apr.
             </Typography>
           </TimelineOppositeContent>
@@ -108,8 +108,8 @@ export default function ProfileAgeTable() {
         </TimelineItem>
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography>
                 2019 Sept.
             </Typography>
           </TimelineOppositeContent>
@@ -125,8 +125,8 @@ export default function ProfileAgeTable() {
         </TimelineItem>
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography>
                 2020 Apr.
             </Typography>
           </TimelineOppositeContent>
@@ -142,8 +142,8 @@ export default function ProfileAgeTable() {
         </TimelineItem>
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography >
                 2020 July.
             </Typography>
           </TimelineOppositeContent>
@@ -159,8 +159,8 @@ export default function ProfileAgeTable() {
         </TimelineItem>
 
         <TimelineItem>
-          <TimelineOppositeContent>
-            <Typography color="secondary">
+          <TimelineOppositeContent className={classes.ageTableTitle}>
+            <Typography>
                 2020 Oct.
             </Typography>
           </TimelineOppositeContent>

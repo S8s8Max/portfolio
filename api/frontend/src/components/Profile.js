@@ -7,13 +7,38 @@ import Typography from "@material-ui/core/Typography";
 import PersonIcon from '@material-ui/icons/Person';
 
 class Profile extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            isDisplayed: false,
+        }
+        this.handleMouseHover = this.handleMouseHover.bind(this);
+    }
+    handleMouseHover() {
+        this.setState({
+            isDisplayed: !this.state.isDisplayed,
+        })
+    }
     render () {
         return (
             <div id="contentStart">
                 <Grid container direction="column" spacing={3} justify="center" alignItems="center">
                     <Grid item>
-                        <Typography variant="h2" style={{color:"whitesmoke"}}>
-                            <PersonIcon fontSize="large"/>
+                        <Typography
+                            variant="h4"
+                            style={{color:"whitesmoke", textAlign:"center"}}>
+                        <div
+                                onMouseEnter={this.handleMouseHover}
+                                onMouseLeave={this.handleMouseHover}
+                                style={{display:this.state.isDisplayed}}>
+                                    <PersonIcon fontSize="large"/>
+                            </div>
+                            {
+                                this.state.isDisplayed &&
+                                <div>
+                                  PROFILE
+                                </div>
+                            }
                         </Typography>
                     </Grid>
                     <Grid item >

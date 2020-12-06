@@ -1,5 +1,8 @@
 import React from "react";
 import axios from "axios";
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from "@material-ui/core/colors/purple";
+import orange from "@material-ui/core/colors/orange";
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -78,7 +81,7 @@ class News extends React.Component {
 
                 <Grid item>
                     <Typography
-                        variant="h2"
+                        variant="h4"
                         style={{color:"whitesmoke", textAlign:"center", }}
                     >
                         <div
@@ -153,11 +156,11 @@ class News extends React.Component {
                                 </Card>
                                 </Grid>
                                 <Grid item>
-                                <Grid item>
                                     <Typography variant="subtitle1" component="h5">
                                         {this.state.item.label}
                                     </Typography>
                                 </Grid>
+                                <Grid item>
                                 <DialogContentText
                                     id="scroll-dialog-description"
                                     tabIndex={-1}

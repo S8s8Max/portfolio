@@ -10,4 +10,4 @@ The reason why the title is "Sober Wizard's Lab" is simple. I often use "Sober W
 
 
 ## [2020/12/12] This repository is older version of "portfolio". Newer one is available below. ##
-<a href="https://github.com/S8s8Max/Portfolio.git">HERE</a>
+<a href="https://github.com/S8s8Max/NewPortfolio.git">HERE</a>
